@@ -1,6 +1,3 @@
-// export facebook from './facebook'
-// export twitter from './twitter'
-
 export default (sharePathPrefix, media) => {
     const { title, description } = media
     return _.flatten([
