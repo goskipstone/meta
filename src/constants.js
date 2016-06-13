@@ -1,4 +1,4 @@
-export default {
+module.exports = {
     AWS_STORAGE_TYPES: {
         Media: '1',
         Thumbnail: '2',
