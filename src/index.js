@@ -1,6 +1,4 @@
-import { default as createMetaData } from './createMetaData'
-export default createMetaData
-
+export { default as createMetaData } from './createMetaData'
 export { default as constructPath } from './constructPath'
 export { default as createQualifiedPath } from './createQualifiedPath'
 export { default as getMediaImg } from './getMediaImg'

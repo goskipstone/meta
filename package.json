@@ -1,6 +1,6 @@
 {
   "name": "@skipstone/meta",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "",
   "main": "dist/index.js",
   "scripts": {
@@ -17,13 +17,17 @@
     "babel-preset-stage-0": "^6.5.0",
     "expect": "^1.20.1",
     "jsx-control-statements": "^3.1.2",
+    "lodash": "^4.13.1",
     "mocha": "^2.4.5",
     "standard": "^7.1.0"
   },
   "author": "",
   "license": "ISC",
   "babel": {
-    "presets": ["es2015", "stage-1"]
+    "presets": [
+      "es2015",
+      "stage-1"
+    ]
   },
   "standard": {
     "globals": [
