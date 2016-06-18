@@ -40,7 +40,7 @@ export function buildFacebookMeta(sharePathPrefix, media, title, description) {
     ]
 }
 
-export default (sharePathPrefix, media) => {
+export default (playerPath, sharePathPrefix, media) => {
     const { title, description } = media
     return flatten([
         buildGooglePlus(sharePathPrefix, media, title, description),
