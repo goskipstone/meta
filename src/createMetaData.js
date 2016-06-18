@@ -18,6 +18,14 @@ export function buildTwitterMeta(sharePathPrefix, media, title, description) {
     ]
 }
 
+export function buildGooglePlus(sharePathPrefix, media, title, description) {
+    return [
+        { itemprop: 'name', content: title },
+        { itemprop: 'description', content: description },
+        { itemprop: 'image', content: getMediaImg(media) }
+    ]
+}
+
 export function buildFacebookMeta(sharePathPrefix, media, title, description) {
     return [
         { name: 'og:title', content: title },
@@ -27,7 +35,7 @@ export function buildFacebookMeta(sharePathPrefix, media, title, description) {
         { name: 'og:type', content: 'video.other' },
         {
             name: 'og:description',
-            content: `️To watch this skipstone, click here!↗️ Description: ${description}`
+            content: `Click To Watch ↗️: ${description}`
         }
     ]
 }
@@ -35,6 +43,7 @@ export function buildFacebookMeta(sharePathPrefix, media, title, description) {
 export default (sharePathPrefix, media) => {
     const { title, description } = media
     return flatten([
+        buildGooglePlus(sharePathPrefix, media, title, description),
         buildTwitterMeta(sharePathPrefix, media, title, description),
         buildFacebookMeta(sharePathPrefix, media, title, description)
     ])
