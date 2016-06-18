@@ -1,7 +1,7 @@
-import { getMediaImg, getMediaSrc, getQualifiedUrl, createQualifiedPath } from '.'
+import { getMediaImg, getMediaSrc, getPlayerUrl, getQualifiedUrl, createQualifiedPath } from '.'
 import { flatten } from 'lodash'
 
-export function buildTwitterMeta(sharePathPrefix, media, title, description) {
+export function buildTwitterMeta(sharePathPrefix, media, title, description, playerPath) {
     return [
         { name: 'twitter:card', content: 'player' },
         { name: 'twitter:site', content: 'skipstone' },
@@ -10,7 +10,7 @@ export function buildTwitterMeta(sharePathPrefix, media, title, description) {
         { name: 'twitter:image', content: getMediaImg(media) },
         { name: 'twitter:url', content: getQualifiedUrl(sharePathPrefix, media) },
         { name: 'twitter:image:src', content: getMediaImg(media) },
-        { name: 'twitter:player', content: getQualifiedUrl(sharePathPrefix, media) },
+        { name: 'twitter:player', content: getPlayerUrl(playerPath, media) },
         { name: 'twitter:player:height', content: 320 },
         { name: 'twitter:player:width', content: 480 },
         { name: 'twitter:player:stream', content: getMediaSrc(media) },
@@ -44,7 +44,7 @@ export default (sharePathPrefix, media) => {
     const { title, description } = media
     return flatten([
         buildGooglePlus(sharePathPrefix, media, title, description),
-        buildTwitterMeta(sharePathPrefix, media, title, description),
+        buildTwitterMeta(sharePathPrefix, media, title, description, playerPath),
         buildFacebookMeta(sharePathPrefix, media, title, description)
     ])
 }
